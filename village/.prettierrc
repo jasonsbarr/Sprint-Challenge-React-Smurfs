@@ -1,4 +1,4 @@
 {
-  "prettier.printWidth": 70,
-  "prettier.trailingCommas": "all"
+  "printWidth": 70,
+  "trailingComma": "all"
 }

@@ -6,7 +6,7 @@ class SmurfForm extends Component {
     this.state = {
       name: "",
       age: "",
-      height: ""
+      height: "",
     };
   }
 
@@ -17,7 +17,7 @@ class SmurfForm extends Component {
     this.setState({
       name: "",
       age: "",
-      height: ""
+      height: "",
     });
   };
 

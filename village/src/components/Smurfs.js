@@ -25,8 +25,8 @@ class Smurfs extends Component {
   }
 }
 
-Smurf.defaultProps = {
-  smurfs: []
+Smurfs.defaultProps = {
+  smurfs: [],
 };
 
 export default Smurfs;
