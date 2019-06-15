@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import axios from "axios";
+import { Route, NavLink } from "react-router-dom";
 
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
-import axios from "axios";
 
 class App extends Component {
   constructor(props) {
@@ -32,15 +33,33 @@ class App extends Component {
 
   addSmurfHandler = smurfs => this.fetchSmurfs();
 
+  renderSmurfsRoute = props =>
+    this.state.error ? (
+      <p>Something went wrong</p>
+    ) : (
+      <Smurfs {...props} smurfs={this.state.smurfs} />
+    );
+
   render() {
     return (
       <div className="App">
-        <SmurfForm onAddSmurf={this.addSmurfHandler} />
-        {this.state.error ? (
-          <p>Something went wrong</p>
-        ) : (
-          <Smurfs smurfs={this.state.smurfs} />
-        )}
+        <nav>
+          <ul>
+            <li>
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/smurf-form">Add Smurf</NavLink>
+            </li>
+          </ul>
+        </nav>
+        <Route exact path="/" render={this.renderSmurfsRoute} />
+        <Route
+          path="/smurf-form"
+          render={props => (
+            <SmurfForm {...props} onAddSmurf={this.addSmurfHandler} />
+          )}
+        />
       </div>
     );
   }

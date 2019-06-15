@@ -31,6 +31,7 @@ class SmurfForm extends Component {
       .then(({ data: smurfs }) => {
         this.props.onAddSmurf(smurfs);
         this.setState({ ...initialFormState, error: null });
+        this.props.history.push("/");
       })
       .catch(error =>
         this.setState({ ...initialFormState, error: error.message }),
