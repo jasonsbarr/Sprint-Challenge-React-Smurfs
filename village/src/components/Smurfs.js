@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-
-import Smurf from './Smurf';
+import React, { Component } from "react";
+import Smurf from "./Smurf";
 
 class Smurfs extends Component {
   render() {
@@ -11,11 +10,9 @@ class Smurfs extends Component {
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
                 key={smurf.id}
+                smurf={smurf}
+                onDelete={this.props.onDeleteSmurf}
               />
             );
           })}
@@ -25,8 +22,8 @@ class Smurfs extends Component {
   }
 }
 
-Smurf.defaultProps = {
- smurfs: [],
+Smurfs.defaultProps = {
+  smurfs: [],
 };
 
 export default Smurfs;
