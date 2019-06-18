@@ -1,19 +1,8 @@
 import React from "react";
+import SmurfSingle from "./SmurfSingle";
 
-const Smurf = props => {
-  return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-    </div>
-  );
-};
-
-Smurf.defaultProps = {
-  name: "",
-  height: "",
-  age: "",
+const Smurf = ({ smurf, onDelete, ...props }) => {
+  return <SmurfSingle smurf={smurf} onDelete={onDelete} {...props} />;
 };
 
 export default Smurf;

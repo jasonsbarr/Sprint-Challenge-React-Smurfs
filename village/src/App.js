@@ -37,8 +37,19 @@ class App extends Component {
     this.state.error ? (
       <p>Something went wrong</p>
     ) : (
-      <Smurfs {...props} smurfs={this.state.smurfs} />
+      <Smurfs
+        {...props}
+        smurfs={this.state.smurfs}
+        onDeleteSmurf={this.handleDeleteSmurf}
+      />
     );
+
+  handleDeleteSmurf = id => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => this.setState({ smurfs: res.data }))
+      .catch(err => console.error(err));
+  };
 
   render() {
     return (

@@ -5,16 +5,19 @@ class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: null,
       name: "",
       age: "",
       height: "",
       error: null,
+      mode: "add",
     };
   }
 
   addSmurf = event => {
     const { name, age, height } = this.state;
     const initialFormState = {
+      id: null,
       name: "",
       age: "",
       height: "",
